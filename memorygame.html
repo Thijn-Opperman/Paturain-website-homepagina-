@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paturain Memory Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/Paturain naturel logo.png" alt="Paturain Logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Onze Combinaties</a></li>
+                <li><a href="#">Sparen</a></li>
+                <li><a href="#" class="active">Spelen</a></li>
+                <li><a href="#">Stuur in</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <button class="btn-login">Log in</button>
+                <button class="btn-signin">Sign in</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Welkomst Popup -->
+    <div id="welcomeModal" class="welcome-modal">
+        <div class="welcome-content">
+            <img src="img/Paturain naturel memory tekst.png" alt="Paturain Memory Game" class="welcome-logo">
+            <h2>Welkom bij het Paturain Memory Spel!</h2>
+            <p>Gebruik de code aan de onderkant van het aluminium folie om het spel te spelen en kans te maken op een
+                reis naar Provence!</p>
+            <div class="welcome-form">
+                <label for="playerName">Vul je code in om te beginnen:</label>
+                <input type="text" id="playerName" placeholder="A1B2C3D4">
+                <button onclick="startGame()" class="start-button">Start het Spel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Container -->
+    <main class="memory-page">
+        <div class="memory-container">
+            <div class="memory-header">
+                <img src="img/Paturain naturel memory tekst.png" alt="Paturain Memory Game" class="memory-logo">
+            </div>
+            <div class="attempts-counter">
+                <p>Aantal pogingen: 0</p>
+            </div>
+            <div class="memory-grid" id="memoryGrid">
+                <!-- Cards will be dynamically added here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Win Modal -->
+    <div class="modal" id="winModal">
+        <div class="modal-content">
+            <img src="img/Paturain naturel light logo.png" alt="Paturain Logo" class="modal-logo">
+            <h2>Gefeliciteerd!</h2>
+            <p>Je hebt het memory spel gewonnen in <span id="finalAttempts"></span> pogingen!</p>
+            <a href="winner.html" class="modal-button">Ga naar formulier</a>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

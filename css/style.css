@@ -29,25 +29,42 @@ body {
 
 /* Header styles */
 header {
-    background: var(--white);
-    box-shadow: var(--shadow);
     position: fixed;
-    width: 100%;
     top: 0;
+    left: 0;
+    right: 0;
+    background: white;
     z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .main-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
-    max-width: 1200px;
+    padding: 1rem 2rem;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
+.logo {
+    margin-left: 20px;
+}
+
+.logo a {
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.logo a:hover {
+    transform: scale(1.1);
+}
+
 .logo img {
-    height: 40px;
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    display: block;
 }
 
 .nav-links {
@@ -364,6 +381,7 @@ footer {
 
 /* Responsive design */
 @media (max-width: 1024px) {
+
     .benefits-grid,
     .prizes-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -394,9 +412,19 @@ footer {
     .footer-content {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .memory-page {
+        margin-top: 70px;
+        padding: 1rem;
+    }
+
+    .logo img {
+        height: 40px;
+    }
 }
 
 @media (max-width: 480px) {
+
     .benefits-grid,
     .prizes-grid {
         grid-template-columns: 1fr;
@@ -409,4 +437,622 @@ footer {
     .hero-content h1 {
         font-size: 2rem;
     }
-} 
+
+    .memory-page {
+        margin-top: 60px;
+        padding: 0.75rem;
+    }
+
+    .logo img {
+        height: 35px;
+    }
+
+    .logo {
+        margin-left: 10px;
+        /* Iets kleinere marge op mobiel */
+    }
+}
+
+/* Memory Game Styles */
+.memory-page {
+    min-height: 100vh;
+    background: url('../img/Paturain achtergrond.png') center/cover no-repeat;
+    padding: 2rem;
+    position: relative;
+    margin-top: 80px;
+}
+
+.memory-container {
+    max-width: 720px;
+    margin: 0 auto;
+    background: url('../img/Memory achtergrond.png') center/cover no-repeat;
+    padding: 1.35rem;
+    border-radius: 13px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.memory-header {
+    text-align: center;
+    margin-bottom: 1.35rem;
+}
+
+.memory-logo {
+    max-width: 270px;
+    width: 100%;
+}
+
+.attempts-counter {
+    text-align: center;
+    margin-bottom: 1.35rem;
+    font-size: 1.17rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.memory-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.9rem;
+    max-width: 540px;
+    margin: 0 auto;
+    padding: 0.9rem;
+}
+
+.memory-card {
+    aspect-ratio: 1;
+    perspective: 1000px;
+    cursor: pointer;
+    max-width: 117px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.memory-card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-front {
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-front::after {
+    content: '';
+    width: 85%;
+    height: 85%;
+    background: url('../img/Paturain naturel logo.png') center/contain no-repeat;
+    opacity: 1;
+}
+
+.card-back {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: white;
+    transform: rotateY(180deg);
+    padding: 10px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .memory-container {
+        padding: 0.9rem;
+        max-width: 585px;
+    }
+
+    .memory-header {
+        margin-bottom: 0.9rem;
+    }
+
+    .memory-logo {
+        max-width: 216px;
+    }
+
+    .memory-card {
+        max-width: 99px;
+    }
+
+    .attempts-counter {
+        margin-bottom: 0.9rem;
+        font-size: 1.08rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .memory-container {
+        padding: 0.675rem;
+        max-width: 360px;
+    }
+
+    .memory-logo {
+        max-width: 194px;
+    }
+
+    .memory-card {
+        max-width: 81px;
+    }
+
+    .attempts-counter {
+        font-size: 0.99rem;
+    }
+}
+
+/* Landscape mode for mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .memory-container {
+        padding: 0.45rem;
+        max-width: 810px;
+    }
+
+    .memory-header {
+        margin-bottom: 0.45rem;
+    }
+
+    .memory-logo {
+        max-width: 162px;
+    }
+
+    .memory-card {
+        max-width: 72px;
+    }
+
+    .attempts-counter {
+        margin-bottom: 0.45rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Welcome Modal Styles */
+.welcome-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    padding: 20px;
+}
+
+.welcome-content {
+    background: url('../img/Memory achtergrond.png') center/cover no-repeat;
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 3px solid var(--primary-color);
+    position: relative;
+    z-index: 2001;
+}
+
+.welcome-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 17px;
+    z-index: -1;
+}
+
+.welcome-content>* {
+    position: relative;
+    z-index: 1;
+}
+
+.welcome-logo {
+    max-width: 280px;
+    width: 90%;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.welcome-content h2 {
+    color: var(--primary-color);
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 0 white;
+}
+
+.welcome-content p {
+    color: #333;
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    padding: 15px;
+    font-weight: bold;
+    border-radius: 10px;
+    background: none;
+}
+
+.welcome-form {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-form label {
+    display: block;
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+#playerName {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    background: white;
+}
+
+.start-button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 100%;
+    max-width: 250px;
+}
+
+.start-button:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* Responsive styles for welcome modal */
+@media (max-width: 768px) {
+    .welcome-content {
+        padding: 25px;
+    }
+
+    .welcome-logo {
+        max-width: 220px;
+    }
+
+    .welcome-content h2 {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-content {
+        padding: 20px;
+    }
+
+    .welcome-logo {
+        max-width: 180px;
+    }
+
+    .welcome-content h2 {
+        font-size: 1.3em;
+    }
+
+    .welcome-content p {
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    .welcome-form {
+        padding: 15px;
+    }
+}
+
+/* Win Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    padding: 20px;
+}
+
+.modal-content {
+    background: url('../img/Memory achtergrond.png') center/cover no-repeat;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 3px solid var(--primary-color);
+    animation: modalPopIn 0.5s ease-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@keyframes modalPopIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-logo {
+    max-width: 200px;
+    width: 90%;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.modal-content h2 {
+    color: var(--primary-color);
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 0 white;
+}
+
+.modal-content p {
+    color: #333;
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    line-height: 1.5;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+#nameInput {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    background: white;
+}
+
+.modal-button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 100%;
+    max-width: 250px;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.modal-button:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* Responsive styles for win modal */
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 25px;
+    }
+
+    .modal-logo {
+        max-width: 180px;
+    }
+
+    .modal-content h2 {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 20px;
+    }
+
+    .modal-logo {
+        max-width: 150px;
+    }
+
+    .modal-content h2 {
+        font-size: 1.3em;
+    }
+
+    .modal-content p {
+        font-size: 1em;
+        padding: 10px;
+    }
+}
+
+/* Winner Page Styles */
+.winner-page {
+    min-height: 100vh;
+    background: url('../img/Paturain achtergrond.png') center/cover no-repeat;
+    padding: 2rem;
+}
+
+.winner-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: url('../img/Memory achtergrond.png') center/cover no-repeat;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.winner-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.winner-logo {
+    max-width: 250px;
+    width: 100%;
+}
+
+.winner-content {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.winner-content h1 {
+    color: var(--primary-color);
+    font-size: 2em;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.winner-content p {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+
+.winner-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 5px rgba(var(--primary-color-rgb), 0.3);
+}
+
+.form-group input[readonly] {
+    background-color: #f5f5f5;
+    border-color: var(--primary-color);
+    color: #666;
+    cursor: not-allowed;
+}
+
+.form-group input[readonly]:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: var(--primary-color);
+}
+
+.submit-button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 100%;
+    max-width: 300px;
+    display: block;
+    margin: 2rem auto 0;
+}
+
+.submit-button:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* Responsive styles for winner page */
+@media (max-width: 768px) {
+    .winner-container {
+        padding: 1.5rem;
+    }
+
+    .winner-content {
+        padding: 1.5rem;
+    }
+
+    .winner-logo {
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .winner-page {
+        padding: 1rem;
+    }
+
+    .winner-container {
+        padding: 1rem;
+    }
+
+    .winner-content {
+        padding: 1rem;
+    }
+
+    .winner-logo {
+        max-width: 180px;
+    }
+
+    .winner-content h1 {
+        font-size: 1.5em;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+}
