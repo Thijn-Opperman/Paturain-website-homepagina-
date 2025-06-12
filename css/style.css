@@ -19,6 +19,8 @@ body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
+    min-height: 100vh;
+    background-color: #CCE9FF;
 }
 
 .container {
@@ -33,9 +35,93 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    background: white;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    height: 100px;
+    background: transparent;
+}
+
+/* Speciale styling voor de homepage header */
+.home-page header {
+    position: absolute;
+    /* Veranderd van fixed naar absolute voor de homepage */
+}
+
+.home-page .nav-links a {
+    color: var(--white);
+}
+
+.home-page .nav-links a:hover,
+.home-page .nav-links a.active {
+    color: var(--secondary-color);
+}
+
+.home-page .btn-login {
+    color: var(--white);
+    border: 1px solid var(--white);
+}
+
+.home-page .btn-signin {
+    background: var(--white);
+    color: #1a237e;
+}
+
+/* Regular header styling for other pages */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+    padding-bottom: 4px;
+    /* Ruimte voor de underline */
+}
+
+.nav-underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    opacity: 0;
+    transition: all 0.3s ease;
+    transform-origin: left;
+}
+
+/* Speciale styling voor de homepage */
+.home-page .nav-underline {
+    background-color: white;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary-color);
+}
+
+.home-page .nav-links a:hover,
+.home-page .nav-links a.active {
+    color: var(--secondary-color);
+}
+
+.btn-login {
+    background: transparent;
+    color: var(--primary-color);
+}
+
+.btn-signin {
+    background: var(--primary-color);
+    color: var(--white);
 }
 
 .main-nav {
@@ -61,28 +147,10 @@ header {
 }
 
 .logo img {
-    height: 50px;
+    height: 75px;
     width: auto;
     object-fit: contain;
     display: block;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 500;
-    transition: var(--transition);
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-    color: var(--primary-color);
 }
 
 .auth-buttons {
@@ -99,144 +167,228 @@ header {
     transition: var(--transition);
 }
 
-.btn-login {
-    background: transparent;
-    color: var(--primary-color);
-}
-
-.btn-signin {
-    background: var(--primary-color);
-    color: var(--white);
-}
-
 /* Hero section */
 .hero {
-    height: 80vh;
-    background: url('../img/header-bg.png');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--white);
-    margin-top: 72px;
+    width: 100%;
     position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: visible;
+    height: auto;
+    margin-bottom: 0;
+}
+
+.hero-image {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .hero-content {
-    position: relative;
-    z-index: 2;
+    position: absolute;
+    top: 60%;
+    margin-top: -100px;
+    left: 0;
+    width: 100%;
+    z-index: 6;
+    padding-bottom: 50px;
 }
 
-.hero-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.hero-content p {
-    font-size: 1.5rem;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-/* Intro section */
-.intro {
-    padding: 4rem 0;
-    background: var(--light-bg);
-}
-
-.intro .container {
+.hero-content .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
+    align-items: flex-end;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.intro-image {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
     align-items: center;
+    margin-left: -50px;
+}
+
+.intro-image img {
+    width: 110%;
+    height: auto;
+    max-width: none;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    cursor: default;
+}
+
+.intro-image img:hover {
+    transform: scale(1.05);
+}
+
+.intro-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    height: 100%;
+    padding-left: 2rem;
+    transition: transform 0.3s ease;
+    cursor: default;
+}
+
+.intro-text:hover {
+    transform: scale(1.05);
 }
 
 .intro-text h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    color: white;
+    font-weight: 900;
 }
 
 .intro-text h3 {
-    font-size: 1.8rem;
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
 }
 
-.btn-primary {
+.intro-text p {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: white;
+    font-weight: 400;
+}
+
+.intro-text .btn-primary {
+    margin-top: 0.5rem;
+    align-self: flex-start;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
     background: var(--primary-color);
     color: var(--white);
-    padding: 1rem 2rem;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: var(--transition);
-    font-size: 1.1rem;
+    transform: scale(0.952);
+    /* Compenseer voor de parent scale om de originele grootte te behouden */
 }
 
-.btn-primary:hover {
+.intro-text:hover .btn-primary {
+    transform: scale(0.952);
+    /* Behoud dezelfde grootte tijdens hover */
+}
+
+.intro-text .btn-primary:hover {
     background: var(--secondary-color);
+    transform: scale(1.05);
+    /* Eigen hover effect voor de knop */
 }
 
 /* Benefits section */
 .benefits {
-    padding: 4rem 0;
+    position: relative;
+    padding: 60px 50px;
+    background-color: #58AAE8;
+    overflow: hidden;
+    margin: 50px;
+    border-radius: 50px;
+    box-shadow: var(--shadow);
+}
+
+.benefits .container {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .benefits h2 {
     text-align: center;
     margin-bottom: 3rem;
+    color: white;
+    font-size: 2.5rem;
 }
 
 .benefits-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
+    width: 100%;
 }
 
 .benefit-item {
     text-align: center;
+    padding: 1rem;
+    color: white;
 }
 
 .benefit-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 1rem;
-    background: var(--light-bg);
-    border-radius: 50%;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 50%;
+    background-color: transparent;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    padding: 0;
+}
+
+.benefit-icon:hover {
+    transform: scale(1.1);
 }
 
 .benefit-icon img {
-    width: 40px;
-    height: 40px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding: 0;
+    display: block;
+}
+
+.benefit-item h3 {
+    color: white;
+    margin-top: 1rem;
+    font-size: 1.2rem;
 }
 
 /* Combinations section */
 .combinations {
     padding: 4rem 0;
-    background: var(--light-bg);
+    background-color: #CCE9FF;
 }
 
 .combinations h2 {
     text-align: center;
     margin-bottom: 3rem;
+    color: var(--text-color);
+    font-size: 2.5rem;
 }
 
 .combinations-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .combination-card {
-    background: var(--white);
-    border-radius: 8px;
+    background: white;
+    border-radius: 20px;
     overflow: hidden;
     box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.combination-card:hover {
+    transform: scale(1.05);
 }
 
 .combination-card img {
@@ -247,27 +399,38 @@ header {
 
 .combination-card p {
     padding: 1.5rem;
+    color: var(--text-color);
 }
 
 .card-buttons {
-    padding: 0 1.5rem 1.5rem;
     display: flex;
     gap: 1rem;
+    padding: 0 1.5rem 1.5rem;
+}
+
+.btn-outline,
+.btn-primary {
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    border: 2px solid var(--primary-color);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .btn-outline {
     background: transparent;
-    border: 2px solid var(--primary-color);
     color: var(--primary-color);
-    padding: 0.5rem 1.5rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: var(--transition);
 }
 
-.btn-outline:hover {
+.btn-primary {
     background: var(--primary-color);
-    color: var(--white);
+    color: white;
+}
+
+.btn-outline:hover,
+.btn-primary:hover {
+    transform: translateY(-2px);
 }
 
 /* Game section */
