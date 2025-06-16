@@ -7,6 +7,7 @@
     <title>Paturain Naturel - Begin je dag met Paturain</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Lemonada:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&display=swap" rel="stylesheet">
 </head>
 
 <body class="home-page">
@@ -37,6 +38,37 @@
             <div class="hero-content">
                 <div class="container">
                     <h1 class="stuurin-hero-title">Ontdek wat je kan met Paturain</h1>
+                    <p class="stuurin-hero-desc">Laat zien hoe jij geniet van de smeuïge, frisse smaak van Paturain Naturel of Light. Ontdek verrassend makkelijke recepten van anderen of upload jouw eigen creatie met slechts een paar simpele, lekkere ingrediënten. Snel, Frans en boordevol inspiratie — c'est tout!</p>
+                    <form class="filter-form" id="filterForm">
+                        <div class="filter-group">
+                            <label for="soortGerecht">Soort gerecht:</label>
+                            <select id="soortGerecht" name="soortGerecht">
+                                <option value="">Kies een soort</option>
+                                <option value="ontbijt">Ontbijt</option>
+                                <option value="brunch">Brunch</option>
+                                <option value="lunch">Lunch</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="bereidingstijd">Bereidingstijd:</label>
+                            <select id="bereidingstijd" name="bereidingstijd">
+                                <option value="">Kies tijd</option>
+                                <option value="kort">Kort (&lt; 15 min)</option>
+                                <option value="gemiddeld">Gemiddeld (15-30 min)</option>
+                                <option value="lang">Lang (&gt; 30 min)</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="dieetwensen">Dieetwensen:</label>
+                            <select id="dieetwensen" name="dieetwensen">
+                                <option value="">Kies dieet</option>
+                                <option value="vegetarisch">Vegetarisch</option>
+                                <option value="vegan">Vegan</option>
+                                <option value="glutenvrij">Glutenvrij</option>
+                            </select>
+                        </div>
+                        <button type="button" class="zoek-btn" id="zoekBtn">Zoek</button>
+                    </form>
                 </div>
             </div>
         </section>
