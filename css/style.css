@@ -833,10 +833,14 @@ footer {
 /* Memory Game Styles */
 .memory-page {
     min-height: 100vh;
-    background: url('../img/Paturain achtergrond.png') center/cover no-repeat;
-    padding: 2rem;
-    position: relative;
-    margin-top: 80px;
+    background-image: url('../img/paturain achtergrond.png');
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .memory-container {
@@ -869,19 +873,18 @@ footer {
 .memory-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 0.9rem;
-    max-width: 540px;
+    gap: 1rem;
+    padding: 1.5rem;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 0.9rem;
 }
 
 .memory-card {
     aspect-ratio: 1;
     perspective: 1000px;
     cursor: pointer;
-    max-width: 117px;
-    margin: 0 auto;
-    width: 100%;
+    width: 140px;
+    height: 140px;
 }
 
 .card-inner {
@@ -945,8 +948,15 @@ footer {
         max-width: 216px;
     }
 
+    .memory-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.75rem;
+        padding: 1rem;
+    }
+
     .memory-card {
-        max-width: 99px;
+        width: 120px;
+        height: 120px;
     }
 
     .attempts-counter {
@@ -965,8 +975,15 @@ footer {
         max-width: 194px;
     }
 
+    .memory-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+        padding: 0.75rem;
+    }
+
     .memory-card {
-        max-width: 81px;
+        width: 100px;
+        height: 100px;
     }
 
     .attempts-counter {
