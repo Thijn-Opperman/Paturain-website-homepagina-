@@ -9,6 +9,14 @@ let flippedCards = [];
 let matchedPairs = 0;
 let attempts = 0;
 let canFlip = true;
+let gameStarted = false;
+
+// DOM Elements
+const gameModal = document.getElementById('gameModal');
+const memoryGrid = document.getElementById('memoryGrid');
+const attemptsDisplay = document.getElementById('attempts');
+const finalAttemptsDisplay = document.getElementById('finalAttempts');
+const winModal = document.getElementById('winModal');
 
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function () {
@@ -441,4 +449,159 @@ document.addEventListener('DOMContentLoaded', function () {
             card.style.transition = 'transform 0.5s ease';
         });
     });
+});
+
+// Start game function
+function startGame() {
+    const gameCode = document.getElementById('gameCode').value.trim();
+
+    if (!gameCode) {
+        alert('Vul eerst een code in om te beginnen.');
+        return;
+    }
+
+    // Here you would typically validate the code
+    // For now, we'll just proceed with the game
+    gameModal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+
+    if (!gameStarted) {
+        initializeGame();
+        gameStarted = true;
+    }
+}
+
+// Initialize the game
+function initializeGame() {
+    attempts = 0;
+    flippedCards = [];
+    matchedPairs = 0;
+    attemptsDisplay.textContent = attempts;
+
+    // Clear the grid
+    memoryGrid.innerHTML = '';
+
+    // Create and shuffle cards
+    const cards = createCards();
+
+    // Verify we have 16 cards before shuffling
+    if (cards.length !== 16) {
+        console.error('Expected 16 cards, but got', cards.length);
+        return;
+    }
+
+    shuffleCards(cards);
+
+    // Add cards to the grid
+    cards.forEach(card => {
+        memoryGrid.appendChild(card);
+    });
+}
+
+// Create memory cards
+function createCards() {
+    const cardValues = [
+        'Paturain naturel memory card', 'Paturain naturel memory card',
+        'Paturain naturel light memory card', 'Paturain naturel light memory card',
+        'Melk memory card', 'Melk memory card',
+        'room memory card', 'room memory card',
+        'Zout memory card', 'Zout memory card',
+        'Provence memory card', 'Provence memory card',
+        'Frankrijk memory card', 'Frankrijk memory card',
+        'Paturain logo memory card', 'Paturain logo memory card'
+    ];
+
+    // Create the cards
+    const cards = cardValues.map(value => {
+        const card = document.createElement('div');
+        card.className = 'memory-card';
+        card.dataset.value = value;
+
+        const cardInner = document.createElement('div');
+        cardInner.className = 'card-inner';
+
+        const cardFront = document.createElement('div');
+        cardFront.className = 'card-front';
+
+        const cardBack = document.createElement('div');
+        cardBack.className = 'card-back';
+        cardBack.style.backgroundImage = `url('img/${value}.png')`;
+        cardBack.style.backgroundSize = 'cover';
+        cardBack.style.backgroundPosition = 'center';
+
+        cardInner.appendChild(cardFront);
+        cardInner.appendChild(cardBack);
+        card.appendChild(cardInner);
+
+        card.addEventListener('click', () => flipCard(card));
+
+        return card;
+    });
+
+    // Verify we have 16 cards
+    console.log('Number of cards created:', cards.length);
+
+    return cards;
+}
+
+// Shuffle cards using Fisher-Yates algorithm
+function shuffleCards(cards) {
+    for (let i = cards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [cards[i], cards[j]] = [cards[j], cards[i]];
+    }
+}
+
+// Flip card function
+function flipCard(card) {
+    if (flippedCards.length === 2) return;
+    if (card.classList.contains('flipped')) return;
+
+    card.classList.add('flipped');
+    flippedCards.push(card);
+
+    if (flippedCards.length === 2) {
+        attempts++;
+        attemptsDisplay.textContent = attempts;
+        checkMatch();
+    }
+}
+
+// Check if flipped cards match
+function checkMatch() {
+    const [card1, card2] = flippedCards;
+    const match = card1.dataset.value === card2.dataset.value;
+
+    if (match) {
+        matchedPairs++;
+        flippedCards = [];
+
+        if (matchedPairs === 8) {
+            setTimeout(showWinModal, 500);
+        }
+    } else {
+        setTimeout(() => {
+            card1.classList.remove('flipped');
+            card2.classList.remove('flipped');
+            flippedCards = [];
+        }, 1000);
+    }
+}
+
+// Show win modal
+function showWinModal() {
+    finalAttemptsDisplay.textContent = attempts;
+    // Store attempts in localStorage
+    localStorage.setItem('memoryAttempts', attempts);
+    winModal.style.display = 'flex';
+}
+
+// Close win modal
+function closeWinModal() {
+    winModal.style.display = 'none';
+}
+
+// Initialize the game when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    // The game will be initialized when the user enters a code and clicks "Speel nu"
 }); 

@@ -33,35 +33,39 @@
         </nav>
     </header>
 
-    <!-- Welkomst Popup -->
-    <div id="welcomeModal" class="welcome-modal">
-        <div class="welcome-content">
-            <img src="img/Paturain naturel memory tekst.png" alt="Paturain Memory Game" class="welcome-logo">
-            <h2>Welkom bij het Paturain Memory Spel!</h2>
-            <p>Gebruik de code aan de onderkant van het aluminium folie om het spel te spelen en kans te maken op een
-                reis naar Provence!</p>
-            <div class="welcome-form">
-                <label for="playerName">Vul je code in om te beginnen:</label>
-                <input type="text" id="playerName" placeholder="A1B2C3D4">
-                <button onclick="startGame()" class="start-button">Start het Spel</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Game Container -->
-    <main class="memory-page">
-        <div class="memory-container">
-            <div class="memory-header">
-                <img src="img/Paturain naturel memory tekst.png" alt="Paturain Memory Game" class="memory-logo">
-            </div>
-            <div class="attempts-counter">
-                <p>Aantal pogingen: 0</p>
-            </div>
-            <div class="memory-grid" id="memoryGrid">
-                <!-- Cards will be dynamically added here -->
+    <!-- Code Input Section -->
+    <main class="code-input-page">
+        <div class="code-input-container">
+            <div class="code-input-content">
+                <img src="img/Paturain naturel memory tekst.png" alt="Paturain Memory Game" class="code-input-logo">
+                <h2>Welkom bij het Paturain Memory Spel!</h2>
+                <p>Gebruik de code aan de onderkant van het aluminium folie om het spel te spelen en kans te maken op
+                    een
+                    reis naar Provence!</p>
+                <div class="code-input-form">
+                    <input type="text" id="gameCode" placeholder="Vul hier je code in" class="code-input-field">
+                    <button onclick="startGame()" class="play-now-button">Speel nu</button>
+                </div>
             </div>
         </div>
     </main>
+
+    <!-- Game Modal -->
+    <div id="gameModal" class="game-modal">
+        <div class="game-modal-content">
+            <div class="memory-container">
+                <div class="memory-header">
+                    <img src="img/Paturain naturel memory tekst.png" alt="Paturain Memory Game" class="memory-logo">
+                </div>
+                <div class="attempts-counter">
+                    <p>Aantal pogingen: <span id="attempts">0</span></p>
+                </div>
+                <div class="memory-grid" id="memoryGrid">
+                    <!-- Cards will be dynamically added here -->
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Win Modal -->
     <div class="modal" id="winModal">
