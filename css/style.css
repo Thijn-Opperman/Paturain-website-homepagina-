@@ -1433,3 +1433,39 @@ footer {
         margin-bottom: 1rem;
     }
 }
+
+/* Stuur in hero titel styling */
+.stuurin-hero-title {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: -280px;
+    color: #2C5F2D; /* Paturain groen */
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    z-index: 2;
+    width: 100%;
+    max-width: 700px;
+    pointer-events: none;
+    font-family: 'Lemonada', sans-serif;
+}
+
+.stuurin-page .hero {
+    position: relative;
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stuurin-page .hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    min-height: 350px;
+    max-height: 450px;
+}
