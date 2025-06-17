@@ -593,6 +593,12 @@ function showWinModal() {
     finalAttemptsDisplay.textContent = attempts;
     // Store attempts in localStorage
     localStorage.setItem('memoryAttempts', attempts);
+
+    // Automatically redirect to winner form after a short delay
+    setTimeout(() => {
+        window.location.href = 'winner.html';
+    }, 2000); // 2 second delay to show the win message
+
     winModal.style.display = 'flex';
 }
 
