@@ -1434,15 +1434,15 @@ footer {
     }
 }
 
-/* Stuur in hero titel styling */
+/* Titel boven het busje in de headerfoto op stuurin pagina */
 .stuurin-hero-title {
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin-top: -280px;
-    color: #2C5F2D; /* Paturain groen */
-    font-size: 3rem;
+    position: relative;
+    top: -310px;
+    left: 0;
+    transform: none;
+    margin: 0 auto 0 auto;
+    color: #2C5F2D;
+    font-size: 2.6rem;
     font-weight: bold;
     text-align: center;
     text-shadow: 0 2px 8px rgba(0,0,0,0.15);
@@ -1452,22 +1452,21 @@ footer {
     pointer-events: none;
     font-family: 'Lemonada', sans-serif;
 }
-
-.stuurin-page .hero {
+.hero .stuurin-hero-desc {
+    margin-top: -40px;
     position: relative;
-    min-height: 350px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    top: 0;
+    left: 0;
+    transform: none;
 }
-
-.stuurin-page .hero-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-    min-height: 350px;
-    max-height: 450px;
+@media (max-width: 700px) {
+    .stuurin-hero-title {
+        top: -70px;
+        font-size: 1.5rem;
+    }
+    .hero .stuurin-hero-desc {
+        margin-top: -20px;
+    }
 }
 
 /* Stuur in uitlegtekst */
@@ -1568,4 +1567,377 @@ footer {
 .zoek-btn:hover {
     background: #15521a;
     box-shadow: 0 4px 12px rgba(27,103,35,0.18);
+}
+
+/* Verrassingsknoppen styling */
+.verrassings-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2.5rem 0 2rem 0;
+    flex-wrap: wrap;
+}
+.verrassings-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(44,95,45,0.08);
+    padding: 1.2rem 1.2rem 1.5rem 1.2rem;
+    max-width: 220px;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+.verrassings-card:hover {
+    box-shadow: 0 6px 24px rgba(44,95,45,0.18);
+    transform: translateY(-4px) scale(1.03);
+}
+.verrassings-img {
+    width: 180px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(85,181,255,0.10);
+}
+.verrassings-btn {
+    background: #55b5ff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.7rem 1.2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.10);
+    font-family: inherit;
+}
+.verrassings-btn:hover {
+    background: #3fa3e6;
+    box-shadow: 0 4px 12px rgba(85,181,255,0.18);
+}
+
+/* Contactformulier styling */
+.contact-form {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 16px rgba(44,95,45,0.10);
+    max-width: 500px;
+    margin: 2.5rem auto 2rem auto;
+    padding: 2.5rem 2rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.contact-form h2 {
+    color: #2C5F2D;
+    font-family: 'Lemonada', cursive;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+.contact-form .form-group {
+    width: 100%;
+    margin-bottom: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.contact-form label {
+    font-weight: 600;
+    color: #2C5F2D;
+    margin-bottom: 0.4rem;
+}
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #97BC62;
+    font-size: 1rem;
+    font-family: inherit;
+    margin-bottom: 0.2rem;
+    background: #f5f5f5;
+    transition: border 0.2s;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border: 1.5px solid #55b5ff;
+    outline: none;
+}
+.submit-button {
+    background: #2C5F2D;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.9rem 2.2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 6px rgba(44,95,45,0.10);
+    font-family: inherit;
+}
+.submit-button:hover {
+    background: #15521a;
+    box-shadow: 0 4px 12px rgba(44,95,45,0.18);
+}
+
+@media (max-width: 900px) {
+    .verrassings-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    .verrassings-card {
+        max-width: 320px;
+        width: 100%;
+    }
+    .verrassings-img {
+        width: 100%;
+        height: 140px;
+    }
+}
+
+/* Categorie blokken */
+.categorieen {
+    margin: 3rem 0 2rem 0;
+    display: flex;
+    justify-content: center;
+}
+.categorie-blokken {
+    display: flex;
+    gap: 2.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.categorie-blok {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 16px rgba(44,95,45,0.10);
+    padding: 1.5rem 1.2rem 2rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 260px;
+    min-width: 220px;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+.categorie-blok:hover {
+    box-shadow: 0 6px 24px rgba(44,95,45,0.18);
+    transform: translateY(-4px) scale(1.03);
+}
+.categorie-img {
+    width: 180px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(85,181,255,0.10);
+}
+.categorie-blok h3 {
+    color: #2C5F2D;
+    font-family: 'Lemonada', cursive;
+    font-size: 1.3rem;
+    margin-bottom: 0.7rem;
+    text-align: center;
+}
+.categorie-btn {
+    background: #55b5ff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.7rem 1.2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.10);
+    font-family: inherit;
+    text-decoration: none;
+    display: inline-block;
+}
+.categorie-btn:hover {
+    background: #3fa3e6;
+    box-shadow: 0 4px 12px rgba(85,181,255,0.18);
+}
+
+@media (max-width: 900px) {
+    .categorie-blokken {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    .categorie-blok {
+        max-width: 320px;
+        width: 100%;
+    }
+    .categorie-img {
+        width: 100%;
+        height: 140px;
+    }
+}
+
+/* Aanmoedigingstekst */
+.aanmoediging {
+    text-align: center;
+    margin: 2.5rem 0 1.5rem 0;
+    font-size: 1.2rem;
+    color: #2C5F2D;
+    font-family: 'Nunito', Arial, sans-serif;
+    font-weight: 500;
+}
+
+/* Recept formulier */
+.recept-form {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 16px rgba(44,95,45,0.10);
+    max-width: 520px;
+    margin: 0 auto 2.5rem auto;
+    padding: 2.5rem 2rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.recept-form .form-group {
+    width: 100%;
+    margin-bottom: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.recept-form label {
+    font-weight: 600;
+    color: #2C5F2D;
+    margin-bottom: 0.4rem;
+}
+.recept-form input,
+.recept-form textarea {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #97BC62;
+    font-size: 1rem;
+    font-family: inherit;
+    margin-bottom: 0.2rem;
+    background: #f5f5f5;
+    transition: border 0.2s;
+}
+.recept-form input[type="file"] {
+    background: none;
+    border: none;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    padding: 0;
+}
+.recept-form input:focus,
+.recept-form textarea:focus {
+    border: 1.5px solid #55b5ff;
+    outline: none;
+}
+.recept-form .submit-button {
+    background: #2C5F2D;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.9rem 2.2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 6px rgba(44,95,45,0.10);
+    font-family: inherit;
+}
+.recept-form .submit-button:hover {
+    background: #15521a;
+    box-shadow: 0 4px 12px rgba(44,95,45,0.18);
+}
+
+/* Footer */
+.footer {
+    background: #2C5F2D;
+    color: #fff;
+    padding: 2rem 0 1rem 0;
+    margin-top: 2rem;
+}
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+}
+.footer-logo img {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+    filter: none;
+}
+.footer-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.2s;
+}
+.footer-links a:hover {
+    color: #97BC62;
+}
+@media (max-width: 600px) {
+    .footer-links {
+        flex-direction: column;
+        gap: 0.7rem;
+        align-items: center;
+    }
+    .footer-content {
+        gap: 0.7rem;
+    }
+}
+
+/* Header afbeelding bovenaan stuur in pagina */
+.header-image-container {
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+.header-image {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0 4px 24px rgba(44,95,45,0.10);
+}
+@media (max-width: 700px) {
+    .header-image {
+        height: 180px;
+        border-radius: 0 0 14px 14px;
+    }
+}
+
+/* Specifiek voor de stuurin-pagina: tekst in header lager */
+.hero .stuurin-hero-desc {
+    margin-top: 120px;
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+}
+@media (max-width: 700px) {
+    .hero .stuurin-hero-desc {
+        margin-top: 60px;
+    }
 }

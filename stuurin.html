@@ -36,42 +36,112 @@
         <section class="hero">
             <img src="img/foto stuur in.png" alt="Header achtergrond" class="hero-image">
             <div class="hero-content">
-                <div class="container">
-                    <h1 class="stuurin-hero-title">Ontdek wat je kan met Paturain</h1>
-                    <p class="stuurin-hero-desc">Laat zien hoe jij geniet van de smeuïge, frisse smaak van Paturain Naturel of Light. Ontdek verrassend makkelijke recepten van anderen of upload jouw eigen creatie met slechts een paar simpele, lekkere ingrediënten. Snel, Frans en boordevol inspiratie — c'est tout!</p>
-                    <form class="filter-form" id="filterForm">
-                        <div class="filter-group">
-                            <label for="soortGerecht">Soort gerecht:</label>
-                            <select id="soortGerecht" name="soortGerecht">
-                                <option value="">Kies een soort</option>
-                                <option value="ontbijt">Ontbijt</option>
-                                <option value="brunch">Brunch</option>
-                                <option value="lunch">Lunch</option>
-                            </select>
-                        </div>
-                        <div class="filter-group">
-                            <label for="bereidingstijd">Bereidingstijd:</label>
-                            <select id="bereidingstijd" name="bereidingstijd">
-                                <option value="">Kies tijd</option>
-                                <option value="kort">Kort (&lt; 15 min)</option>
-                                <option value="gemiddeld">Gemiddeld (15-30 min)</option>
-                                <option value="lang">Lang (&gt; 30 min)</option>
-                            </select>
-                        </div>
-                        <div class="filter-group">
-                            <label for="dieetwensen">Dieetwensen:</label>
-                            <select id="dieetwensen" name="dieetwensen">
-                                <option value="">Kies dieet</option>
-                                <option value="vegetarisch">Vegetarisch</option>
-                                <option value="vegan">Vegan</option>
-                                <option value="glutenvrij">Glutenvrij</option>
-                            </select>
-                        </div>
-                        <button type="button" class="zoek-btn" id="zoekBtn">Zoek</button>
-                    </form>
+                <h1 class="stuurin-hero-title">Ontdek wat je kan met Paturain</h1>
+                <div class="stuurin-hero-desc">
+                    Laat zien hoe jij geniet van de smeuïge, frisse smaak van Paturain Naturel of Light. Ontdek verrassend makkelijke recepten van anderen of upload jouw eigen creatie met slechts een paar simpele, lekkere ingrediënten. Snel, Frans en boordevol inspiratie — c'est tout!
                 </div>
             </div>
         </section>
+        <section class="categorieen">
+            <div class="categorie-blokken">
+                <div class="categorie-blok">
+                    <img src="img/ontbijt.jpg" alt="Ontbijt" class="categorie-img">
+                    <h3>Ontbijt</h3>
+                    <a href="#" class="categorie-btn">Naar combinaties</a>
+                </div>
+                <div class="categorie-blok">
+                    <img src="img/brunch.jpg" alt="Brunch" class="categorie-img">
+                    <h3>Brunch</h3>
+                    <a href="#" class="categorie-btn">Naar combinaties</a>
+                </div>
+                <div class="categorie-blok">
+                    <img src="img/lunch.jpg" alt="Lunch" class="categorie-img">
+                    <h3>Lunch</h3>
+                    <a href="#" class="categorie-btn">Naar combinaties</a>
+                </div>
+            </div>
+        </section>
+        <section class="recepten-delen">
+            <div class="aanmoediging">
+                <p>Heb jij een verrassende combinatie met Paturain? Deel jouw favoriete recept en inspireer anderen!</p>
+            </div>
+            <form class="recept-form" id="receptForm" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="gerechtnaam">Naam gerecht:</label>
+                    <input type="text" id="gerechtnaam" name="gerechtnaam" required>
+                </div>
+                <div class="form-group">
+                    <label for="beschrijving">Korte beschrijving (optioneel):</label>
+                    <input type="text" id="beschrijving" name="beschrijving">
+                </div>
+                <div class="form-group">
+                    <label for="ingredienten">Ingrediëntenlijst:</label>
+                    <textarea id="ingredienten" name="ingredienten" rows="2" required>Patruain naturel of light</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="bereiding">Bereidingswijze:</label>
+                    <textarea id="bereiding" name="bereiding" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="foto">Upload een foto:</label>
+                    <input type="file" id="foto" name="foto" accept="image/*">
+                </div>
+                <div class="form-group">
+                    <label for="naam">Jouw naam:</label>
+                    <input type="text" id="naam" name="naam" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <button type="submit" class="submit-button">Verstuur recept</button>
+            </form>
+        </section>
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h4>Over ons</h4>
+                        <ul>
+                            <li><a href="#">Ons verhaal</a></li>
+                            <li><a href="#">Duurzaamheid</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Recepten</h4>
+                        <ul>
+                            <li><a href="#">Ontbijt</a></li>
+                            <li><a href="#">Lunch</a></li>
+                            <li><a href="#">Brunch</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Producten</h4>
+                        <ul>
+                            <li><a href="#">Naturel</a></li>
+                            <li><a href="#">Kruiden</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="#">Contactformulier</a></li>
+                            <li><a href="#">Veelgestelde vragen</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <img src="img/paturain naturel logo.png" alt="Paturain Logo" class="footer-logo">
+                    <p>&copy; 2025 Paturain - Een merk van Bell Nederland</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </main>
 </body>
 
