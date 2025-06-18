@@ -344,35 +344,33 @@ header.scrolled .btn-signin {
 
 .benefit-item {
     text-align: center;
-    padding: 1rem;
-    color: white;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .benefit-icon {
-    width: 160px;
-    height: 160px;
-    margin: 0 auto 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1rem;
     border-radius: 50%;
-    background-color: transparent;
-    box-shadow: var(--shadow);
-    transition: transform 0.3s ease;
     overflow: hidden;
-    padding: 0;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease-out;
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .benefit-icon:hover {
-    transform: scale(1.1);
+    transform: scale(1.1) translateZ(0);
 }
 
 .benefit-icon img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    padding: 0;
-    display: block;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .benefit-item h3 {
@@ -385,6 +383,7 @@ header.scrolled .btn-signin {
 .combinations {
     padding: 4rem 0;
     background-color: #CCE9FF;
+    will-change: transform;
 }
 
 .combinations h2 {
@@ -401,6 +400,7 @@ header.scrolled .btn-signin {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    will-change: transform;
 }
 
 .combination-card {
@@ -408,17 +408,22 @@ header.scrolled .btn-signin {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: var(--shadow);
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease-out;
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .combination-card:hover {
-    transform: scale(1.05);
+    transform: translateY(-8px) scale(1.02);
 }
 
 .combination-card img {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .combination-card p {
@@ -439,7 +444,9 @@ header.scrolled .btn-signin {
     border: 2px solid var(--primary-color);
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease-out;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .btn-outline {
@@ -454,7 +461,7 @@ header.scrolled .btn-signin {
 
 .btn-outline:hover,
 .btn-primary:hover {
-    transform: translateY(-2px);
+    transform: translateY(-2px) translateZ(0);
 }
 
 .combinations-desc {
@@ -491,11 +498,14 @@ header.scrolled .btn-signin {
     border-radius: 10px;
     text-align: center;
     box-shadow: var(--shadow);
-    transition: var(--transition);
+    transition: transform 0.2s ease-out;
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .game-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) translateZ(0);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -540,12 +550,13 @@ header.scrolled .btn-signin {
     object-fit: contain;
     margin: 0 auto 1rem auto;
     display: block;
-    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.2s ease-out;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .game-card:hover .game-image {
-    transform: scale(1.07);
-    z-index: 2;
+    transform: scale(1.05) translateZ(0);
 }
 
 /* Prizes section */
@@ -582,19 +593,48 @@ header.scrolled .btn-signin {
     text-decoration: none;
 }
 
-.prize-card-link:hover .prize-card {
-    transform: translateY(-10px);
-}
-
 .prize-card {
     background: var(--white);
     border-radius: 15px;
     overflow: hidden;
     box-shadow: var(--shadow);
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease-out;
     display: flex;
     flex-direction: column;
     height: 100%;
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+.prize-card-link:hover .prize-card {
+    transform: translateY(-10px) translateZ(0);
+}
+
+.prize-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+    display: block;
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+/* Specific styling for the second card's image */
+.prizes-grid .prize-card-link:nth-child(2) .prize-card img {
+    object-fit: contain;
+    background-color: #67BBFE;
+    padding: 10px;
+}
+
+/* Specific styling for the fourth card's image */
+.prizes-grid .prize-card-link:nth-child(4) .prize-card img {
+    object-fit: contain;
+    background-color: #67BBFE;
+    padding: 20px;
+    width: 80%;
+    margin: 0 auto;
 }
 
 /* First and third cards */
@@ -613,30 +653,6 @@ header.scrolled .btn-signin {
 
 .prizes-grid .prize-card-link:nth-child(even) .prize-card p {
     color: white;
-}
-
-.prize-card img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 15px 15px 0 0;
-    display: block;
-}
-
-/* Specific styling for the second card's image */
-.prizes-grid .prize-card-link:nth-child(2) .prize-card img {
-    object-fit: contain;
-    background-color: #67BBFE;
-    padding: 10px;
-}
-
-/* Specific styling for the fourth card's image */
-.prizes-grid .prize-card-link:nth-child(4) .prize-card img {
-    object-fit: contain;
-    background-color: #67BBFE;
-    padding: 20px;
-    width: 80%;
-    margin: 0 auto;
 }
 
 .prize-card-content {
@@ -875,7 +891,7 @@ footer {
 .memory-container {
     max-width: 720px;
     margin: 0 auto;
-    background: url('../img/picknick\ kleed.jpg') center/cover no-repeat;
+    background: url('../img/memory achtergrond.png') center/cover no-repeat;
     padding: 1.35rem;
     border-radius: 13px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
@@ -1451,16 +1467,7 @@ footer {
     z-index: 2000;
 }
 
-.game-modal-content {
-    position: relative;
-    width: 80%;
-    height: 100%;
-    margin: 0 auto;
-    background: url('../img/Memory achtergrond.png') center/cover no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 
 .close-modal {
     position: absolute;
@@ -1532,160 +1539,177 @@ footer {
 /* --- Stuur in pagina --- */
 
 .stuurin-hero-title {
-  color: var(--primary-color);
-  font-size: 2.8rem;
-  font-weight: 900;
-  text-shadow: 0 2px 12px rgba(44,95,45,0.18), 0 1px 0 #fff;
-  margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    font-size: 2.8rem;
+    font-weight: 900;
+    text-shadow: 0 2px 12px rgba(44, 95, 45, 0.18), 0 1px 0 #fff;
+    margin-bottom: 0.5rem;
 }
 
 .stuurin-hero-desc {
-  background: none;
-  color: white;
-  text-shadow: 0 2px 12px rgba(44,95,45,0.25), 0 1px 0 #3F5E78;
-  border-radius: 0;
-  box-shadow: none;
-  margin-top: 0.5rem;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 1.35rem;
+    background: none;
+    color: white;
+    text-shadow: 0 2px 12px rgba(44, 95, 45, 0.25), 0 1px 0 #3F5E78;
+    border-radius: 0;
+    box-shadow: none;
+    margin-top: 0.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.35rem;
 }
 
 .categorieen {
-  padding: 3rem 0 2rem 0;
-  background: #CCE9FF;
+    padding: 3rem 0 2rem 0;
+    background: #CCE9FF;
 }
 
 .categorie-blokken {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  flex-wrap: wrap;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .categorie-blok {
-  background: var(--white);
-  border-radius: 20px;
-  box-shadow: var(--shadow);
-  padding: 1.5rem 1.5rem 2rem 1.5rem;
-  text-align: center;
-  width: 220px;
-  transition: transform 0.3s;
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    padding: 1.5rem 1.5rem 2rem 1.5rem;
+    text-align: center;
+    width: 220px;
+    transition: transform 0.3s;
 }
+
 .categorie-blok:hover {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
+
 .categorie-img {
-  width: 100%;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 14px;
-  margin-bottom: 1rem;
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1rem;
 }
+
 .categorie-btn {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.7rem 1.5rem;
-  background: var(--primary-color);
-  color: var(--white);
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: background 0.3s;
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.7rem 1.5rem;
+    background: var(--primary-color);
+    color: var(--white);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s;
 }
+
 .categorie-btn:hover {
-  background: var(--secondary-color);
+    background: var(--secondary-color);
 }
 
 .recepten-delen {
-  background: #fff;
-  border-radius: 30px;
-  box-shadow: var(--shadow);
-  max-width: 700px;
-  margin: 3rem auto 2rem auto;
-  padding: 2.5rem 2rem;
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: var(--shadow);
+    max-width: 700px;
+    margin: 3rem auto 2rem auto;
+    padding: 2.5rem 2rem;
 }
+
 .aanmoediging {
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 1.2rem;
-  color: var(--primary-color);
-  font-weight: 600;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: 600;
 }
+
 .recept-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
 }
+
 .recept-form .form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
+
 .recept-form label {
-  color: var(--primary-color);
-  font-weight: 600;
+    color: var(--primary-color);
+    font-weight: 600;
 }
+
 .recept-form input[type="text"],
 .recept-form input[type="email"],
 .recept-form textarea {
-  padding: 0.7rem 1rem;
-  border: 2px solid var(--primary-color);
-  border-radius: 8px;
-  font-size: 1rem;
-  background: #f8f8f8;
-  color: var(--text-color);
-  resize: vertical;
+    padding: 0.7rem 1rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #f8f8f8;
+    color: var(--text-color);
+    resize: vertical;
 }
+
 .recept-form input[type="file"] {
-  border: none;
-  background: none;
-  font-size: 1rem;
-  color: var(--primary-color);
+    border: none;
+    background: none;
+    font-size: 1rem;
+    color: var(--primary-color);
 }
+
 .submit-button {
-  background: var(--primary-color);
-  color: var(--white);
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s;
-  margin-top: 1rem;
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 1rem;
 }
+
 .submit-button:hover {
-  background: var(--secondary-color);
+    background: var(--secondary-color);
 }
 
 @media (max-width: 900px) {
-  .categorie-blokken {
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-  }
-  .recepten-delen {
-    max-width: 98vw;
-    padding: 1.5rem 0.5rem;
-  }
+    .categorie-blokken {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .recepten-delen {
+        max-width: 98vw;
+        padding: 1.5rem 0.5rem;
+    }
 }
+
 @media (max-width: 600px) {
-  .stuurin-hero-title {
-    font-size: 1.5rem;
-  }
-  .stuurin-hero-desc {
-    font-size: 1rem;
-    padding: 1rem;
-  }
-  .categorie-blok {
-    width: 95vw;
-    padding: 1rem 0.5rem 1.5rem 0.5rem;
-  }
-  .recepten-delen {
-    padding: 1rem 0.2rem;
-  }
+    .stuurin-hero-title {
+        font-size: 1.5rem;
+    }
+
+    .stuurin-hero-desc {
+        font-size: 1rem;
+        padding: 1rem;
+    }
+
+    .categorie-blok {
+        width: 95vw;
+        padding: 1rem 0.5rem 1.5rem 0.5rem;
+    }
+
+    .recepten-delen {
+        padding: 1rem 0.2rem;
+    }
 }
 
 /* Header afbeelding bovenaan stuur in pagina */
@@ -1695,14 +1719,16 @@ footer {
     overflow: hidden;
     margin-bottom: 2rem;
 }
+
 .header-image {
     width: 100%;
     height: 320px;
     object-fit: cover;
     display: block;
     border-radius: 0 0 24px 24px;
-    box-shadow: 0 4px 24px rgba(44,95,45,0.10);
+    box-shadow: 0 4px 24px rgba(44, 95, 45, 0.10);
 }
+
 @media (max-width: 700px) {
     .header-image {
         height: 180px;
@@ -1718,6 +1744,7 @@ footer {
     left: 0;
     transform: none;
 }
+
 @media (max-width: 700px) {
     .hero .stuurin-hero-desc {
         margin-top: 60px;
@@ -1725,14 +1752,16 @@ footer {
 }
 
 @media (max-width: 700px) {
-  .hero-content {
-    top: 74%;
-  }
-  .stuurin-hero-title {
-    font-size: 1.7rem;
-  }
-  .stuurin-hero-desc {
-    font-size: 1.05rem;
-    margin-top: 1rem;
-  }
+    .hero-content {
+        top: 74%;
+    }
+
+    .stuurin-hero-title {
+        font-size: 1.7rem;
+    }
+
+    .stuurin-hero-desc {
+        font-size: 1.05rem;
+        margin-top: 1rem;
+    }
 }

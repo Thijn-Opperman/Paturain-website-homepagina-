@@ -170,26 +170,46 @@ buttons.forEach(button => {
     });
 });
 
-// Intersection Observer for fade-in animations
+// Intersection Observer for fade-in animations with better performance
 const observerOptions = {
     root: null,
-    rootMargin: '0px',
+    rootMargin: '50px',
     threshold: 0.1
 };
+
+// Throttle function for better performance
+function throttle(func, limit) {
+    let inThrottle;
+    return function () {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    }
+}
 
 const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in');
+            // Use requestAnimationFrame for smooth animations
+            requestAnimationFrame(() => {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            });
             observer.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
-// Add fade-in animation to sections
+// Add fade-in animation to sections with better performance
 document.querySelectorAll('section').forEach(section => {
     section.style.opacity = '0';
-    section.style.transition = 'opacity 0.5s ease-in-out';
+    section.style.transform = 'translateY(20px)';
+    section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+    section.style.willChange = 'opacity, transform';
     observer.observe(section);
 });
 
